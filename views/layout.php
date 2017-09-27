@@ -8,12 +8,13 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   </head>
   <body>
     <header>
       <a href='/library'>Home</a>
-      <a href='?controller=users&action=index'>Books</a>
-      <a href='?controller=users&action=add'>Add Book</a>
+      <a href='?controller=books&action=index'>Books</a>
+      <a href='?controller=books&action=add'>Add Book</a>
     </header>
 
     <?php require_once('routes.php'); ?>

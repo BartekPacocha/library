@@ -9,7 +9,7 @@
 				break;
 			case 'books':
 				require_once('models/book.php');
-				$controller = new BookController();
+				$controller = new BooksController();
 				break;
 		}
 
