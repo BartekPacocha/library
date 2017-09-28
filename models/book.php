@@ -25,5 +25,23 @@
 
 			return $list;
 		}
+
+		public static function add($title,$author, $isRead, $note) {
+			try{
+				$db = Db::getInstance();
+				$req = $db->prepare('
+					INSERT INTO books (title, author, isRead, note)
+					VALUES (:title, :author, :isRead, :note)
+					');
+				$req->execute([
+					'title' => $title,
+					'author' => $author,
+					'isRead' => $isRead,
+					'note' => $note
+				]);
+			} catch(PDOException $e) {
+				echo 'Query failed: ' . $e->getMessage();
+			} 
+		}
 	}
 ?>
