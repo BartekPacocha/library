@@ -29,6 +29,14 @@
       require_once('views/books/edit.php');
     }
 
+    public function editComment() {
+      if (!isset($_GET['id'] ))
+        return call('pages', 'error');
+
+      $book = Book::find($_GET['id']);
+      require_once('views/books/editComment.php');
+    }
+
     public function add() {
       require_once('views/books/add.php');
     }

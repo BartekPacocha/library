@@ -43,5 +43,40 @@
 				echo 'Query failed: ' . $e->getMessage();
 			} 
 		}
+
+		public static function find($id) {
+			$db = Db::getInstance();
+			$id = intval($id);
+			$req = $db->prepare('SELECT * FROM books WHERE id = :id');
+			$req->execute(array('id' => $id));
+			$book = $req->fetch();
+
+			return new book($book['id'], $book['title'], $book['author'], $book['isRead'], $book['note']);
+		}
+
+		public static function delete($id) {
+			$db = Db::getInstance();
+			$id = intval($id);
+			$req = $db->prepare('DELETE FROM books WHERE id = :id');
+			$req->execute(array('id' => $id));
+		}
+
+		// edit method: add rating, comment, category?
+		public static function editComment($id, $isRead, $note) {
+			$db = Db::getInstance();
+			$id = intval($id);
+			$req = $db->prepare('UPDATE books SET isRead = :isRead, note = :note WHERE id = :id');
+			$req->execute(['id' => $id, 'isRead' => $isRead, 'note' => $note]);
+		} 
+
+		/* searching all authors book
+		public static showAuthor($author) {
+			$db = Db::getInstance();
+			$req = $db->prepare('SELECT * FROM books WHERE author = :author');
+			$req->execute(array('author' => $author));
+			$booksAuthor = $req->fetch();
+
+			return new book($book['id'], $book['title'], $book['author'], $book['isRead'], $book['note']);
+		}*/
 	}
 ?>

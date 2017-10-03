@@ -9,7 +9,11 @@
 	</tr>
 	<?php foreach($books as $book) { ?>
 	<tr>
-		<td><?php echo $book->title; ?></td>
+		<td>
+			<a href='?controller=books&action=show&id=<?php echo $book->id; ?>'>
+				<?php echo $book->title; ?>
+			</a>
+		</td>
 		<td><?php echo $book->author; ?></td>
 		<td>
 			<?php
@@ -23,6 +27,8 @@
 			?>
 		</td>
 		<td><?php echo $book->note; ?></td>
+		<td><a href='?controller=books&action=editComment&id=<?php echo $book->id; ?>'>Edit</a></td>
+		<td><a href='?controller=books&action=delete&id=<?php echo $book->id; ?>'>Delete</a></td>
 	</tr>
 	<?php } ?>
 </table>

@@ -17,7 +17,7 @@
 	}
 
 	$controllers = array('pages' => ['home', 'error', 'list'],
-						 'books' => ['index', 'show', 'add', 'edit', 'delete']
+						 'books' => ['index', 'show', 'add', 'edit', 'delete', 'editComment']
 						);
 
 	if (array_key_exists($controller, $controllers)) {
